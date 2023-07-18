@@ -11,7 +11,7 @@ class Doctor extends Model
     use HasFactory;
     use Translatable;
     public $translatedAttributes = ['name','appointments'];
-    protected $fillable =['name','email_verified_at','password','phone','price','appointments' ,'email','local'];
+    protected $fillable =['name','email_verified_at','password','phone','price','appointments' ,'email',];
 
     public  function image (){
 

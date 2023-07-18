@@ -14,10 +14,10 @@ return new class extends Migration
         Schema::create('doctor_translations', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('doctor_id')->unsigned();
-            $table->string('local')->index();
+            $table->string('locale')->index();
             $table->string('name');
             $table->string('appointments');
-            $table->unique(['doctor_id' ,'local']);
+            $table->unique(['doctor_id' ,'locale']);
             $table->foreign('doctor_id')->references('id')->on('doctors')->onDelete('cascade');
         });
     }

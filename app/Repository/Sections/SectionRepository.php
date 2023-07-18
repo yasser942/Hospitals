@@ -1,7 +1,7 @@
 <?php
 namespace App\Repository\Sections;
 use App\Interfaces\Sections\SectionRepositoryInterface;
-use App\Models\Models\Section;
+use App\Models\Section;
 
 class SectionRepository  implements SectionRepositoryInterface
 {

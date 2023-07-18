@@ -1,9 +1,8 @@
 <?php
 
-namespace App\Models\Models;
+namespace App\Models;
 
 // 1. To specify package’s class you are using
-use Astrotomic\Translatable\Contracts\Translatable as TranslatableContract;
 use Astrotomic\Translatable\Translatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;

@@ -31,7 +31,7 @@
                                     <div class="mb-5 d-flex"> <a href="{{ url('/' . $page='index') }}"><img src="{{URL::asset('Dashboard/img/brand/favicon.png')}}" class="sign-favicon ht-40" alt="logo"></a><h1 class="main-logo1 ml-1 mr-0 my-auto tx-28">Va<span>le</span>x</h1></div>
                                     <div class="card-sigin">
                                         <div class="main-signup-header">
-                                            <h2>Welcome</h2>
+                                            <h2>{{trans('Dashboard/login_trans.Welcome')}}</h2>
                                             @if ($errors->any())
                                                 <div class="alert alert-danger">
                                                     <ul>
@@ -43,12 +43,14 @@
                                             @endif
 
                                             <div class="form-group">
-                                                <label for="exampleFormControlSelect1">حدد نوع الدخول</label>
+                                                <label for="exampleFormControlSelect1">{{trans('Dashboard/login_trans.Select_Enter')}}</label>
                                                 <select class="form-control" id="sectionChooser">
-                                                    <option value="" selected disabled>اختر من القائمة</option>
-                                                    <option value="user">الدخول كمستخدم</option>
-                                                    <option value="admin">الدخول كأدمن</option>
-
+                                                    <option value="" selected disabled>{{trans('Dashboard/login_trans.Choose_list')}}</option>
+                                                    <option value="user">{{trans('Dashboard/login_trans.user')}}</option>
+                                                    <option value="admin">{{trans('Dashboard/login_trans.admin')}}</option>
+                                                    <option value="doctor">الدخول دكتور</option>
+                                                    <option value="ray_employee">موظف اشعة</option>
+                                                    <option value="laboratorie_employee">موظف مختبر</option>
                                                 </select>
                                             </div>
 
@@ -105,11 +107,83 @@
                                                 </div>
                                             </div>
 
+                                            {{--form Doctor--}}
+                                            <div class="panel" id="doctor">
+                                                <h2>الدخول دكتور</h2>
+                                                <form method="POST" action="#">
+                                                    @csrf
+                                                    <div class="form-group">
+                                                        <label>Email</label> <input  class="form-control" placeholder="Enter your email" type="email" name="email" :value="old('email')" required autofocus>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Password</label> <input class="form-control" placeholder="Enter your password"   type="password"name="password" required autocomplete="current-password" >
+                                                    </div><button type="submit" class="btn btn-main-primary btn-block">Sign In</button>
+                                                    <div class="row row-xs">
+                                                        <div class="col-sm-6">
+                                                            <button class="btn btn-block"><i class="fab fa-facebook-f"></i> Signup with Facebook</button>
+                                                        </div>
+                                                        <div class="col-sm-6 mg-t-10 mg-sm-t-0">
+                                                            <button class="btn btn-info btn-block"><i class="fab fa-twitter"></i> Signup with Twitter</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                                <div class="main-signin-footer mt-5">
+                                                    <p><a href="">Forgot password?</a></p>
+                                                    <p>Don't have an account? <a href="{{ url('/' . $page='signup') }}">Create an Account</a></p>
+                                                </div>
+                                            </div>
 
+                                            {{--form RayEmployee--}}
+                                            <div class="panel" id="ray_employee">
+                                                <h2>الدخول موظف اشعة</h2>
+                                                <form method="POST" action="#">
+                                                    @csrf
+                                                    <div class="form-group">
+                                                        <label>Email</label> <input  class="form-control" placeholder="Enter your email" type="email" name="email" :value="old('email')" required autofocus>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Password</label> <input class="form-control" placeholder="Enter your password"   type="password"name="password" required autocomplete="current-password" >
+                                                    </div><button type="submit" class="btn btn-main-primary btn-block">Sign In</button>
+                                                    <div class="row row-xs">
+                                                        <div class="col-sm-6">
+                                                            <button class="btn btn-block"><i class="fab fa-facebook-f"></i> Signup with Facebook</button>
+                                                        </div>
+                                                        <div class="col-sm-6 mg-t-10 mg-sm-t-0">
+                                                            <button class="btn btn-info btn-block"><i class="fab fa-twitter"></i> Signup with Twitter</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                                <div class="main-signin-footer mt-5">
+                                                    <p><a href="">Forgot password?</a></p>
+                                                    <p>Don't have an account? <a href="{{ url('/' . $page='signup') }}">Create an Account</a></p>
+                                                </div>
+                                            </div>
 
-
-
-
+                                            {{--form laboratorie_employee--}}
+                                            <div class="panel" id="laboratorie_employee">
+                                                <h2>الدخول موظف مختبر</h2>
+                                                <form method="POST" action="#">
+                                                    @csrf
+                                                    <div class="form-group">
+                                                        <label>Email</label> <input  class="form-control" placeholder="Enter your email" type="email" name="email" :value="old('email')" required autofocus>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Password</label> <input class="form-control" placeholder="Enter your password"   type="password"name="password" required autocomplete="current-password" >
+                                                    </div><button type="submit" class="btn btn-main-primary btn-block">Sign In</button>
+                                                    <div class="row row-xs">
+                                                        <div class="col-sm-6">
+                                                            <button class="btn btn-block"><i class="fab fa-facebook-f"></i> Signup with Facebook</button>
+                                                        </div>
+                                                        <div class="col-sm-6 mg-t-10 mg-sm-t-0">
+                                                            <button class="btn btn-info btn-block"><i class="fab fa-twitter"></i> Signup with Twitter</button>
+                                                        </div>
+                                                    </div>
+                                                </form>
+                                                <div class="main-signin-footer mt-5">
+                                                    <p><a href="">Forgot password?</a></p>
+                                                    <p>Don't have an account? <a href="{{ url('/' . $page='signup') }}">Create an Account</a></p>
+                                                </div>
+                                            </div>
 
                                         </div>
                                     </div>

@@ -3,16 +3,26 @@
 namespace App\Http\Controllers\Dashboard;
 
 use App\Http\Controllers\Controller;
+use App\Interfaces\Doctors\DoctorRepositoryInterface;
+use App\Interfaces\Sections\SectionRepositoryInterface;
+use App\Models\Doctor;
 use Illuminate\Http\Request;
 
 class DoctorController extends Controller
 {
+
+    private $Doctors;
+
+    public function __construct(DoctorRepositoryInterface $Doctors)
+    {
+        $this->Doctors = $Doctors;
+    }
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return 'yasser';
+        return $this->Doctors->index();
     }
 
     /**
@@ -20,7 +30,7 @@ class DoctorController extends Controller
      */
     public function create()
     {
-        //
+        return $this->Doctors->create();
     }
 
     /**

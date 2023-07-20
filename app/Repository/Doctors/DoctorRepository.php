@@ -1,6 +1,7 @@
 <?php
 namespace App\Repository\Doctors;
 
+
 use App\Interfaces\Doctors\DoctorRepositoryInterface;
 use App\Models\Appointment;
 use App\Models\Doctor;
@@ -13,7 +14,7 @@ use Illuminate\Support\Facades\Hash;
 
 class DoctorRepository implements DoctorRepositoryInterface
 {
-    //use UploadTrait;
+    use UploadTrait;
 
     public function index()
     {
@@ -40,19 +41,21 @@ class DoctorRepository implements DoctorRepositoryInterface
             $doctors->password = Hash::make($request->password);
             $doctors->section_id = $request->section_id;
             $doctors->phone = $request->phone;
+            $doctors->price = $request->price;
             $doctors->status = 1;
             $doctors->save();
 
             // store trans
             $doctors->name = $request->name;
+            $doctors->appointments = implode(',',$request->appointments);
             $doctors->save();
 
             // insert pivot tABLE
-            $doctors->doctorappointments()->attach($request->appointments);
+            //$doctors->doctorappointments()->attach($request->appointments);
 
 
             //Upload img
-            $this->verifyAndStoreImage($request,'photo','doctors','upload_image',$doctors->id,'App\Models\Doctor');
+            $this->verifyAndStoreImage( $request,'photo','doctors','upload_image',$doctors->id,'App\Models\Doctor');
 
             DB::commit();
             session()->flash('add');

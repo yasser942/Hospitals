@@ -49,7 +49,7 @@
                                         {{trans('doctors.name')}}</label>
                                 </div>
                                 <div class="col-md-11 mg-t-5 mg-md-t-0">
-                                    <input class="form-control" name="name" type="text" autofocus>
+                                    <input class="form-control" name="name" type="text" autofocus value="{{old('name')}}">
                                 </div>
                             </div>
 
@@ -59,7 +59,7 @@
                                         {{trans('doctors.email')}}</label>
                                 </div>
                                 <div class="col-md-11 mg-t-5 mg-md-t-0">
-                                    <input class="form-control" name="email" type="email">
+                                    <input class="form-control" name="email" type="email" value="{{old('email')}}">
                                 </div>
                             </div>
 
@@ -69,7 +69,7 @@
                                         {{ trans('doctors.password') }}</label>
                                 </div>
                                 <div class="col-md-11 mg-t-5 mg-md-t-0">
-                                    <input class="form-control" name="password" type="password">
+                                    <input class="form-control" name="password" type="password" value="{{old('password')}}">
                                 </div>
                             </div>
 
@@ -79,7 +79,16 @@
                                         {{ trans('doctors.phone') }}</label>
                                 </div>
                                 <div class="col-md-11 mg-t-5 mg-md-t-0">
-                                    <input class="form-control" name="phone" type="tel">
+                                    <input class="form-control" name="phone" type="tel" value="{{old('phone')}}">
+                                </div>
+                            </div>
+                            <div class="row row-xs align-items-center mg-b-20">
+                                <div class="col-md-1">
+                                    <label for="doctorPrice">{{ trans('doctors.price') }}</label>
+                                </div>
+                                <div class="col-md-11 mg-t-5 mg-md-t-0">
+                                    <input class="form-control" name="price" type="number" step="0.01" value="{{old('price')}}">
+
                                 </div>
                             </div>
 
@@ -108,10 +117,17 @@
                                 </div>
 
                                 <div class="col-md-11 mg-t-5 mg-md-t-0">
-                                    <select multiple="multiple" class="testselect2" name="appointments[]">
-                                        <option selected name="appointments[]" value="" selected disabled>-- حدد المواعيد --</option>
+                                    <select multiple="multiple" class="testselect2" name="appointments[]" >
+                                        <option selected name="appointments[]" value="{{old('appointments')}}" selected disabled>-- حدد المواعيد --</option>
 
-                                            <option value="">appointment 1</option>
+                                        <option value="السبت">السبت</option>
+                                        <option value="الأحد">الأحد</option>
+                                        <option value="الاثنين">الاثنين</option>
+                                        <option value="الثلاثاء">الثلاثاء</option>
+                                        <option value="الأربعاء">الأربعاء</option>
+                                        <option value="الخميس">الخميس</option>
+                                        <option value="الجمعة">الجمعة</option>
+
 
                                     </select>
 

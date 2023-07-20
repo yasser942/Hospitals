@@ -38,7 +38,7 @@ class DoctorController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        return $this->Doctors->store($request);
     }
 
     /**

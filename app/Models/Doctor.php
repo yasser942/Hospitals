@@ -11,7 +11,7 @@ class Doctor extends Model
     use HasFactory;
     use Translatable;
     public $translatedAttributes = ['name','appointments'];
-    protected $fillable =['name','email_verified_at','password','phone','price','appointments' ,'email','section_id'];
+    protected $fillable =['name','email_verified_at','password','phone' ,'email','section_id'];
 
     public  function image (){
 
@@ -21,6 +21,10 @@ class Doctor extends Model
     public  function section (){
 
         return $this->belongsTo(Section::class,);
+    }
+    public function doctorappointments()
+    {
+        return $this->belongsToMany(Appointment::class,'appointment_doctor');
     }
 
 

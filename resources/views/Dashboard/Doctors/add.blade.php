@@ -82,15 +82,7 @@
                                     <input class="form-control" name="phone" type="tel" value="{{old('phone')}}">
                                 </div>
                             </div>
-                            <div class="row row-xs align-items-center mg-b-20">
-                                <div class="col-md-1">
-                                    <label for="doctorPrice">{{ trans('doctors.price') }}</label>
-                                </div>
-                                <div class="col-md-11 mg-t-5 mg-md-t-0">
-                                    <input class="form-control" name="price" type="number" step="0.01" value="{{old('price')}}">
 
-                                </div>
-                            </div>
 
 
                             <div class="row row-xs align-items-center mg-b-20">

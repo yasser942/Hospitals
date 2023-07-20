@@ -43,7 +43,6 @@ class DoctorRepository implements DoctorRepositoryInterface
             $doctors->password = Hash::make($request->password);
             $doctors->section_id = $request->section_id;
             $doctors->phone = $request->phone;
-            $doctors->price = $request->price;
             $doctors->status = 1;
             $doctors->save();
 

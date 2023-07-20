@@ -18,7 +18,7 @@ class SectionFactory extends Factory
     {
         return [
             'name' => $this->faker->unique()->randomElement(['قسم المخ والاعصاب','قسم الجراحة','قسم الاطفال','قسم الأشعة','قسم المختبر']),
-            //'description'=>$this->faker->paragraph
+            'description'=>$this->faker->paragraph
         ];
     }
 }

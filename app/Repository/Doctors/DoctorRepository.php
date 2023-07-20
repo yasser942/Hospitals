@@ -19,14 +19,16 @@ class DoctorRepository implements DoctorRepositoryInterface
     public function index()
     {
         $doctors = Doctor::all();
-        return view('Dashboard.Doctors.index',compact('doctors'));
+
+
+        return view('Dashboard.Doctors.index',compact('doctors',));
     }
 
     public function create()
     {
         $sections = Section::all();
-        //$appointments = Appointment::all();
-        return view('Dashboard.Doctors.add',compact('sections',));
+        $appointments = Appointment::all();
+        return view('Dashboard.Doctors.add',compact('sections','appointments'));
     }
 
 
@@ -120,8 +122,6 @@ class DoctorRepository implements DoctorRepositoryInterface
          $this->Delete_attachment('upload_image','doctors/'.$request->filename,$request->id,$request->filename);
        }
           Doctor::destroy($request->id);
-          session()->flash('delete');
-          return redirect()->route('Doctors.index');
       }
 
 
@@ -139,9 +139,9 @@ class DoctorRepository implements DoctorRepositoryInterface
           }
 
           Doctor::destroy($delete_select_id);
-          session()->flash('delete');
-          return redirect()->route('Doctors.index');
       }
+        session()->flash('delete');
+        return redirect()->route('Doctors.index');
 
     }
 

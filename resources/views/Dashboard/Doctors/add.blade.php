@@ -120,13 +120,10 @@
                                     <select multiple="multiple" class="testselect2" name="appointments[]" >
                                         <option selected name="appointments[]" value="{{old('appointments')}}" selected disabled>-- حدد المواعيد --</option>
 
-                                        <option value="السبت">السبت</option>
-                                        <option value="الأحد">الأحد</option>
-                                        <option value="الاثنين">الاثنين</option>
-                                        <option value="الثلاثاء">الثلاثاء</option>
-                                        <option value="الأربعاء">الأربعاء</option>
-                                        <option value="الخميس">الخميس</option>
-                                        <option value="الجمعة">الجمعة</option>
+                                        @foreach($appointments as $appointment)
+                                            <option value="{{$appointment->name}}">{{$appointment->name}}</option>
+                                        @endforeach
+
 
 
                                     </select>

@@ -13,6 +13,7 @@ interface DoctorRepositoryInterface
     // store Doctor
     public function store($request);
 
+
     // update Doctor
     public function update($request);
 

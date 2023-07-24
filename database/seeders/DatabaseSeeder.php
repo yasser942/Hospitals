@@ -28,7 +28,7 @@ class DatabaseSeeder extends Seeder
         $username = 'YASSER EL HASAN';
 
         // Replace '2y$10$GZLPGHIUC95wjXmFNSQWb.4X14wY2dzvOTfRro7aY7wO/ZzuIx2p6' with the provided hashed password
-        $hashedPassword = '2y$10$GZLPGHIUC95wjXmFNSQWb.4X14wY2dzvOTfRro7aY7wO/ZzuIx2p6';
+        $hashedPassword = '$2y$10$SHzvHYqaCjO5dPoACb079u5rxSWu6ahuDMRumQCYhYKWtK1LSkove';
 
         DB::table('admins')->insert([
             'email' => $email,

@@ -18,7 +18,7 @@ class DoctorRepository implements DoctorRepositoryInterface
 
     public function index()
     {
-        $doctors = Doctor::all();
+        $doctors = Doctor::with('doctorappointments')->get();
 
 
         return view('Dashboard.Doctors.index',compact('doctors',));
@@ -48,11 +48,10 @@ class DoctorRepository implements DoctorRepositoryInterface
 
             // store trans
             $doctors->name = $request->name;
-            $doctors->appointments = implode(',',$request->appointments);
             $doctors->save();
 
             // insert pivot tABLE
-            //$doctors->doctorappointments()->attach($request->appointments);
+             $doctors->doctorappointments()->attach($request->appointments);
 
 
             //Upload img

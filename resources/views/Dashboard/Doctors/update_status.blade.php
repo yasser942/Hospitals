@@ -10,7 +10,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form action="#" method="post" autocomplete="off">
+            <form action="{{route('update_status')}}" method="post" autocomplete="off">
                 {{ csrf_field() }}
                 <div class="modal-body">
 
